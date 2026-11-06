@@ -9,7 +9,8 @@ import type {
   CommonGroundAbout1Data,
   CommonGroundCauses1Data,
   TeamSectionData,
-  GallerySectionData,
+  TestimonialSectionData,
+  TestimonialItem,
   CommonGroundFAQ1Data,
   ContactSectionData,
   CommonGroundFooter1Data,
@@ -111,8 +112,11 @@ export const causesData: CommonGroundCauses1Data =
 export const teamSectionData: TeamSectionData =
   getSectionData<TeamSectionData>("TeamSection", "CommonGroundTeam1");
 
-export const gallerySectionData: GallerySectionData =
-  getSectionData<GallerySectionData>("GallerySection", "CommonGroundGallery1");
+export const testimonialSectionData: TestimonialSectionData =
+  getSectionData<TestimonialSectionData>(
+    "TestimonialSection",
+    "CommonGroundTestimonial1"
+  );
 
 export const faqData: CommonGroundFAQ1Data =
   getSectionData<CommonGroundFAQ1Data>("FAQ", "CommonGroundFAQ1");

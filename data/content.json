@@ -26,8 +26,8 @@
                 "component": "CommonGroundTeam1"
               },
               {
-                "key": "GallerySection",
-                "component": "CommonGroundGallery1"
+                "key": "TestimonialSection",
+                "component": "CommonGroundTestimonial1"
               },
               {
                 "key": "FAQ",
@@ -75,8 +75,8 @@
                 "href": "#team"
               },
               {
-                "name": "Gallery",
-                "href": "#gallery"
+                "name": "Testimonials",
+                "href": "#testimonials"
               },
               {
                 "name": "FAQ",
@@ -273,50 +273,41 @@
           }
         }
       },
-      "GallerySection": {
+      "TestimonialSection": {
         "variants": {
-          "CommonGroundGallery1": {
-            "id": "gallery",
-            "eyebrow": "OUR GALLERY",
-            "headingPart1": "Small moments.",
-            "headingItalic": "Something meaningful.",
-            "subtitle": "A glimpse of the care, curiosity, and connection at the heart of our vision.",
+          "CommonGroundTestimonial1": {
+            "id": "testimonials",
+            "eyebrow": "VOICES OF HOPE",
+            "headingPart1": "Stories that inspire.",
+            "headingItalic": "Lives forever changed.",
+            "subtitle": "Real experiences from neighbors, volunteers, and local partners working together for common good.",
             "items": [
               {
-                "id": "moment-garden",
-                "image": "/images/garden.jpg",
-                "title": "Flourishing Community Gardens",
-                "subtitle": "Locals tending to seasonal organic vegetable patches and pollinator sanctuaries."
+                "id": "story-1",
+                "quote": "Common Ground transformed our barren corner into a thriving community sanctuary. For the first time in twenty years, neighbors of every generation gather weekly to plant, learn, and break bread together.",
+                "author": "Elena Rostova",
+                "role": "Community Garden Volunteer & Resident",
+                "location": "Oakland, CA",
+                "rating": 5,
+                "avatar": "/images/avatar1.svg"
               },
               {
-                "id": "moment-planting",
-                "image": "/images/planting.jpg",
-                "title": "Community Reforestation Days",
-                "subtitle": "Youth volunteers planting native saplings across regional conservation reserves."
+                "id": "story-2",
+                "quote": "The literacy mentorship program gave my children not just books, but mentors who truly believed in their potential. Watching their confidence soar has been the greatest gift to our entire family.",
+                "author": "Marcus Adebayo",
+                "role": "Parent & Local Supporter",
+                "location": "Atlanta, GA",
+                "rating": 5,
+                "avatar": "/images/avatar2.svg"
               },
               {
-                "id": "moment-learning",
-                "image": "/images/learning.jpg",
-                "title": "Inspiring Outdoor Workshops",
-                "subtitle": "Interactive lessons on soil health, seed collection, and climate resilience."
-              },
-              {
-                "id": "moment-community",
-                "image": "/images/community.jpg",
-                "title": "Grassroots Town Halls",
-                "subtitle": "Community members uniting to shape priorities and steward shared initiatives."
-              },
-              {
-                "id": "moment-nursery",
-                "image": "/images/banner_plant.jpg",
-                "title": "Native Plant Propagation",
-                "subtitle": "Nurturing resilient seedlings for community reforestation and habitat revival."
-              },
-              {
-                "id": "moment-canopy",
-                "image": "/images/banner_plant_right.jpg",
-                "title": "Protected Ecological Canopies",
-                "subtitle": "Sustained canopy stewardship ensuring thriving wildlife and fresh air for generations."
+                "id": "story-3",
+                "quote": "In every environmental workshop and tree-planting drive, Common Ground demonstrates what transparent, grassroots leadership looks like. You can see the real, tangible impact in the soil and water.",
+                "author": "Sophia Lin",
+                "role": "Environmental Educator & Donor",
+                "location": "Portland, OR",
+                "rating": 5,
+                "avatar": "/images/avatar3.svg"
               }
             ]
           }
@@ -446,8 +437,8 @@
                     "href": "#team"
                   },
                   {
-                    "name": "Gallery",
-                    "href": "#gallery"
+                    "name": "Testimonials",
+                    "href": "#testimonials"
                   },
                   {
                     "name": "Faq",

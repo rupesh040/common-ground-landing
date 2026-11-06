@@ -25,7 +25,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
       "about",
       "causes",
       "team",
-      "gallery",
+      "testimonials",
       "faq",
       "contact",
     ];

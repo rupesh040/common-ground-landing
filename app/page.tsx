@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Causes from "@/components/Causes";
 import TeamGrid from "@/components/TeamGrid";
-import GalleryView from "@/components/GalleryView";
+import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <About />
       <Causes hideTopLink />
       <TeamGrid />
-      <GalleryView />
+      <Testimonials />
       <FAQ />
       <ContactForm />
     </>

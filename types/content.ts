@@ -179,6 +179,25 @@ export interface GallerySectionData {
   items: GalleryItem[];
 }
 
+export interface TestimonialItem {
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  location?: string;
+  rating?: number;
+  avatar?: string;
+}
+
+export interface TestimonialSectionData {
+  id?: string;
+  eyebrow?: string;
+  headingPart1?: string;
+  headingItalic?: string;
+  subtitle?: string;
+  items: TestimonialItem[];
+}
+
 export interface ContactDetailInfo {
   icon?: string;
   label: string;
@@ -235,6 +254,12 @@ export interface SectionVariants {
   GallerySection?: {
     variants: {
       CommonGroundGallery1: GallerySectionData;
+      [key: string]: unknown;
+    };
+  };
+  TestimonialSection?: {
+    variants: {
+      CommonGroundTestimonial1: TestimonialSectionData;
       [key: string]: unknown;
     };
   };
