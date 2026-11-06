@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import type { TestimonialSectionData, TestimonialItem } from "@/types/content";
 import { testimonialSectionData } from "@/lib/content";
 
@@ -26,35 +26,79 @@ export default function Testimonials({
   const total = items.length;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState(1);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  // Responsive visible cards count (1 on mobile, 2 on tablet, 3 on desktop)
+  useEffect(() => {
+    const updateCount = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(3);
+      }
+    };
+    updateCount();
+    window.addEventListener("resize", updateCount);
+    return () => window.removeEventListener("resize", updateCount);
+  }, []);
+
+  const maxIndex = Math.max(0, total - visibleCount);
+
+  // Reset current index if it goes beyond maxIndex on window resize
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
 
   const handleNext = useCallback(() => {
-    if (total <= 1) return;
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % total);
-  }, [total]);
+    if (total <= visibleCount) return;
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [total, visibleCount, maxIndex]);
 
   const handlePrev = useCallback(() => {
-    if (total <= 1) return;
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + total) % total);
-  }, [total]);
+    if (total <= visibleCount) return;
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [total, visibleCount, maxIndex]);
 
+  // Automatic slide animation every 5 seconds (pauses when user hovers or touches)
   useEffect(() => {
-    if (isPaused || total <= 1) return;
+    if (isPaused || total <= visibleCount) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isPaused, total, handleNext]);
+  }, [isPaused, total, visibleCount, handleNext]);
+
+  // Touch swipe support for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (diff > 50) {
+      handleNext();
+    } else if (diff < -50) {
+      handlePrev();
+    }
+    setTouchStart(null);
+    setIsPaused(false);
+  };
 
   if (!items.length) {
     return null;
   }
 
-  // Pick up to 3 cards to show in the sliding window for desktop
-  const activeItem = items[currentIndex];
+  const canSlide = total > visibleCount;
+  const totalSlides = maxIndex + 1;
 
   return (
     <section
@@ -62,8 +106,10 @@ export default function Testimonials({
       className={`scroll-mt-24 py-12 sm:py-16 lg:py-20 bg-[#F7F7F0] border-t border-[#E8EDE2] relative overflow-hidden select-none ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
-      {/* Decorative background glow */}
+      {/* Decorative background glows */}
       <div
         className="pointer-events-none absolute -top-24 right-0 w-96 h-96 bg-[radial-gradient(circle_at_top_right,rgba(208,234,135,0.22),transparent_70%)]"
         aria-hidden="true"
@@ -80,7 +126,7 @@ export default function Testimonials({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12"
         >
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
@@ -104,14 +150,14 @@ export default function Testimonials({
               {subtitle}
             </p>
 
-            {/* Slider Controls */}
-            {total > 1 && (
+            {/* Slider Navigation Arrows */}
+            {canSlide && (
               <div className="flex items-center gap-3 shrink-0">
                 <button
                   type="button"
                   onClick={handlePrev}
-                  aria-label="Previous testimonial"
-                  className="w-11 h-11 rounded-full border border-[#143323]/25 bg-white text-[#143323] flex items-center justify-center hover:bg-[#143323] hover:text-[#D4EAA2] hover:border-[#143323] transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
+                  aria-label="Previous slide"
+                  className="w-12 h-12 rounded-full border border-[#143323]/25 bg-white text-[#143323] flex items-center justify-center hover:bg-[#143323] hover:text-[#D4EAA2] hover:border-[#143323] transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
                 >
                   <svg
                     className="w-5 h-5"
@@ -130,8 +176,8 @@ export default function Testimonials({
                 <button
                   type="button"
                   onClick={handleNext}
-                  aria-label="Next testimonial"
-                  className="w-11 h-11 rounded-full border border-[#143323]/25 bg-white text-[#143323] flex items-center justify-center hover:bg-[#143323] hover:text-[#D4EAA2] hover:border-[#143323] transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
+                  aria-label="Next slide"
+                  className="w-12 h-12 rounded-full border border-[#143323]/25 bg-white text-[#143323] flex items-center justify-center hover:bg-[#143323] hover:text-[#D4EAA2] hover:border-[#143323] transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
                 >
                   <svg
                     className="w-5 h-5"
@@ -152,33 +198,35 @@ export default function Testimonials({
           </div>
         </motion.div>
 
-        {/* Testimonials Display */}
-        <div className="relative">
-          {/* Main Grid View */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {items.map((item, idx) => {
-              const isFeatured = idx === currentIndex;
-              return (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`relative flex flex-col justify-between rounded-3xl p-7 sm:p-8 transition-all duration-300 cursor-pointer ${
-                    isFeatured
-                      ? "bg-white border-2 border-[#143323] shadow-lg scale-[1.02] ring-4 ring-[#D4EAA2]/40"
-                      : "bg-[#FFFFFF]/85 hover:bg-white border border-[#E2E8DC] shadow-[0_2px_12px_rgba(20,51,35,0.04)] hover:shadow-md"
-                  }`}
-                >
+        {/* Sliding Carousel Track (Single Row, Never Multi-row Grid) */}
+        <div className="relative overflow-hidden -mx-3 py-2">
+          <motion.div
+            className="flex"
+            animate={{
+              x: `-${currentIndex * (100 / visibleCount)}%`,
+            }}
+            transition={{
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            {items.map((item, idx) => (
+              <div
+                key={item.id || idx}
+                style={{ width: `${100 / visibleCount}%` }}
+                className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-3 flex flex-col"
+              >
+                <div className="h-full flex flex-col justify-between rounded-3xl bg-white border border-[#E2E8DC] p-7 sm:p-8 shadow-[0_4px_20px_rgba(20,51,35,0.04)] hover:shadow-xl hover:border-[#143323]/25 transition-all duration-300">
                   <div>
-                    {/* Quote mark and Stars */}
+                    {/* Quotation icon and Rating stars */}
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-10 h-10 rounded-2xl bg-[#E5EED6] text-[#143323] flex items-center justify-center font-serif text-2xl font-bold">
+                      <div className="w-10 h-10 rounded-2xl bg-[#E5EED6] text-[#143323] flex items-center justify-center font-serif text-2xl font-bold shadow-2xs">
                         “
                       </div>
-                      <div className="flex gap-1" aria-label="5 out of 5 stars">
+                      <div
+                        className="flex gap-1"
+                        aria-label={`${item.rating || 5} out of 5 stars`}
+                      >
                         {[...Array(item.rating || 5)].map((_, i) => (
                           <svg
                             key={i}
@@ -191,14 +239,14 @@ export default function Testimonials({
                       </div>
                     </div>
 
-                    {/* Quote text */}
+                    {/* Testimonial Quote */}
                     <p className="text-sm sm:text-base text-[#2D4536] leading-relaxed italic font-serif mb-6">
                       &ldquo;{item.quote}&rdquo;
                     </p>
                   </div>
 
-                  {/* Author metadata */}
-                  <div className="pt-5 border-t border-[#E8EDE2] flex items-center gap-3.5">
+                  {/* Author information */}
+                  <div className="pt-5 border-t border-[#E8EDE2] flex items-center gap-3.5 mt-auto">
                     {item.avatar ? (
                       <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#D4EAA2] bg-[#E5EED6] shrink-0">
                         <Image
@@ -213,40 +261,40 @@ export default function Testimonials({
                         {item.author.charAt(0)}
                       </div>
                     )}
-                    <div>
-                      <h4 className="text-sm sm:text-base font-bold text-[#143323] font-sans leading-tight">
+                    <div className="min-w-0">
+                      <h4 className="text-sm sm:text-base font-bold text-[#143323] font-sans leading-tight truncate">
                         {item.author}
                       </h4>
-                      <p className="text-xs text-[#526B5C] font-medium leading-tight mt-0.5">
+                      <p className="text-xs text-[#526B5C] font-medium leading-tight mt-0.5 truncate">
                         {item.role}
                         {item.location && ` • ${item.location}`}
                       </p>
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Dots Indicator */}
-          {total > 1 && (
-            <div className="flex justify-center items-center gap-2 mt-8 sm:mt-10">
-              {items.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    currentIndex === idx
-                      ? "w-8 bg-[#143323]"
-                      : "w-2.5 bg-[#143323]/25 hover:bg-[#143323]/50"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Carousel Slide Indicators */}
+        {canSlide && (
+          <div className="flex justify-center items-center gap-2 mt-8 sm:mt-10">
+            {Array.from({ length: totalSlides }).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentIndex === idx
+                    ? "w-8 bg-[#143323]"
+                    : "w-2.5 bg-[#143323]/20 hover:bg-[#143323]/45"
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

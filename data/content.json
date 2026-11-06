@@ -308,6 +308,33 @@
                 "location": "Portland, OR",
                 "rating": 5,
                 "avatar": "/images/avatar3.svg"
+              },
+              {
+                "id": "story-4",
+                "quote": "The clean water catchment and community seed bank transformed our regional allotments. It created lasting agricultural dignity and reliable nutrition for over forty local families.",
+                "author": "David Henderson",
+                "role": "Urban Agriculture Partner",
+                "location": "Chicago, IL",
+                "rating": 5,
+                "avatar": "/images/avatar1.svg"
+              },
+              {
+                "id": "story-5",
+                "quote": "Volunteering with this grassroots team showed me that real, meaningful change starts at our front doorsteps. Planting native canopies together brought an incredible spirit of unity to our neighborhood.",
+                "author": "Aisha Patel",
+                "role": "Youth Eco-Ambassador",
+                "location": "Austin, TX",
+                "rating": 5,
+                "avatar": "/images/avatar2.svg"
+              },
+              {
+                "id": "story-6",
+                "quote": "Their transparent stewardship and open communication inspired our trust immediately. You can track every contribution turning into practical tools, thriving gardens, and educated youth.",
+                "author": "Liam O'Connor",
+                "role": "Community Foundation Lead",
+                "location": "Boston, MA",
+                "rating": 5,
+                "avatar": "/images/avatar3.svg"
               }
             ]
           }
