@@ -6,23 +6,13 @@ import type {
   PageComponentRef,
   CommonGroundHeader1Data,
   CommonGroundHero1Data,
-  CommonGroundTicker1Data,
   CommonGroundAbout1Data,
   CommonGroundCauses1Data,
-  CommonGroundRooted1Data,
-  CommonGroundVolunteerCTA1Data,
-  CommonGroundFAQ1Data,
-  CommonGroundBlog1Data,
-  CommonGroundFooter1Data,
-  PageBannerData,
   TeamSectionData,
   GallerySectionData,
+  CommonGroundFAQ1Data,
   ContactSectionData,
-  FAQPageSectionData,
-  PreFooterCTAData,
-  MarqueeBannerSmallData,
-  CauseDetailData,
-  BlogDetailData,
+  CommonGroundFooter1Data,
   PageMetadataItem,
 } from "@/types/content";
 
@@ -95,10 +85,6 @@ export function getSharedSectionData<T>(
   return getSectionData<T>(sharedKey, variantName, siteKey);
 }
 
-export function getPageBannerData(bannerVariant: string): PageBannerData {
-  return getSectionData<PageBannerData>("PageBanners", bannerVariant);
-}
-
 export function getSiteMetadata(): PageMetadataItem {
   const site = getSiteTemplate();
   return (
@@ -110,43 +96,11 @@ export function getSiteMetadata(): PageMetadataItem {
   );
 }
 
-export function getPageMetadata(pageKey: string): PageMetadataItem {
-  const site = getSiteTemplate();
-  return site.metadata?.pages?.[pageKey] || getSiteMetadata();
-}
-
-export function getCauseBySlug(slug: string): CauseDetailData | undefined {
-  const site = getSiteTemplate();
-  const causeDetails = site.sections.CauseDetails as { items?: Record<string, CauseDetailData> } | undefined;
-  return causeDetails?.items?.[slug];
-}
-
-export function getAllCauses(): CauseDetailData[] {
-  const site = getSiteTemplate();
-  const causeDetails = site.sections.CauseDetails as { items?: Record<string, CauseDetailData> } | undefined;
-  return Object.values(causeDetails?.items || {});
-}
-
-export function getBlogBySlug(slug: string): BlogDetailData | undefined {
-  const site = getSiteTemplate();
-  const blogDetails = site.sections.BlogDetails as { items?: Record<string, BlogDetailData> } | undefined;
-  return blogDetails?.items?.[slug];
-}
-
-export function getAllBlogs(): BlogDetailData[] {
-  const site = getSiteTemplate();
-  const blogDetails = site.sections.BlogDetails as { items?: Record<string, BlogDetailData> } | undefined;
-  return Object.values(blogDetails?.items || {});
-}
-
 export const headerData: CommonGroundHeader1Data =
   getSharedSectionData<CommonGroundHeader1Data>("Header");
 
 export const heroData: CommonGroundHero1Data =
   getSectionData<CommonGroundHero1Data>("Hero", "CommonGroundHero1");
-
-export const tickerData: CommonGroundTicker1Data =
-  getSectionData<CommonGroundTicker1Data>("Ticker", "CommonGroundTicker1");
 
 export const aboutData: CommonGroundAbout1Data =
   getSectionData<CommonGroundAbout1Data>("About", "CommonGroundAbout1");
@@ -154,38 +108,20 @@ export const aboutData: CommonGroundAbout1Data =
 export const causesData: CommonGroundCauses1Data =
   getSectionData<CommonGroundCauses1Data>("Causes", "CommonGroundCauses1");
 
-export const rootedInCareData: CommonGroundRooted1Data =
-  getSectionData<CommonGroundRooted1Data>("RootedInCare", "CommonGroundRooted1");
-
-export const volunteerCTAData: CommonGroundVolunteerCTA1Data =
-  getSectionData<CommonGroundVolunteerCTA1Data>("VolunteerCTA", "CommonGroundVolunteerCTA1");
-
-export const faqData: CommonGroundFAQ1Data =
-  getSectionData<CommonGroundFAQ1Data>("FAQ", "CommonGroundFAQ1");
-
-export const blogData: CommonGroundBlog1Data =
-  getSectionData<CommonGroundBlog1Data>("Blog", "CommonGroundBlog1");
-
-export const footerData: CommonGroundFooter1Data =
-  getSharedSectionData<CommonGroundFooter1Data>("Footer");
-
 export const teamSectionData: TeamSectionData =
   getSectionData<TeamSectionData>("TeamSection", "CommonGroundTeam1");
 
 export const gallerySectionData: GallerySectionData =
   getSectionData<GallerySectionData>("GallerySection", "CommonGroundGallery1");
 
+export const faqData: CommonGroundFAQ1Data =
+  getSectionData<CommonGroundFAQ1Data>("FAQ", "CommonGroundFAQ1");
+
 export const contactSectionData: ContactSectionData =
   getSectionData<ContactSectionData>("ContactSection", "CommonGroundContact1");
 
-export const faqPageSectionData: FAQPageSectionData =
-  getSectionData<FAQPageSectionData>("FAQPageSection", "CommonGroundFAQPage1");
-
-export const preFooterCTAData: PreFooterCTAData =
-  getSectionData<PreFooterCTAData>("PreFooterCTA", "CommonGroundPreFooterCTA1");
-
-export const marqueeBannerSmallData: MarqueeBannerSmallData =
-  getSectionData<MarqueeBannerSmallData>("MarqueeBannerSmall", "CommonGroundMarqueeBannerSmall1");
+export const footerData: CommonGroundFooter1Data =
+  getSharedSectionData<CommonGroundFooter1Data>("Footer");
 
 export const homePageComponentsList: PageComponentRef[] =
   getHomePageComponents();

@@ -3,22 +3,32 @@
 :root {
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-serif), Georgia, serif;
-  --bg-canvas: #F4F3EE;
-  --bg-canvas-light: #F7F7F0;
+  --bg-canvas: #f4f3ee;
+  --bg-canvas-light: #f7f7f0;
   --color-forest: #143323;
-  --color-forest-dark: #0D2218;
-  --color-forest-light: #1C412E;
-  --color-lime: #D0EA87;
-  --color-lime-soft: #D4EAA2;
-  --color-lime-hover: #C2E073;
-  --color-badge: #CEE795;
-  --color-muted: #4A5D50;
-  --color-border: #E2E6DA;
+  --color-forest-dark: #0d2218;
+  --color-forest-light: #1c412e;
+  --color-lime: #d0ea87;
+  --color-lime-soft: #d4eaa2;
+  --color-lime-hover: #c2e073;
+  --color-badge: #cee795;
+  --color-muted: #4a5d50;
+  --color-border: #e2e6da;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  background-color: #F4F3EE;
-  color: #14281D;
+  background-color: #f4f3ee;
+  color: #14281d;
   font-family: var(--font-sans);
 }
 
@@ -27,24 +37,24 @@ body {
   --font-serif: var(--font-serif);
 
   --color-brand-forest: #143323;
-  --color-brand-forest-dark: #0D2218;
-  --color-brand-forest-light: #1C412E;
-  --color-brand-lime: #D0EA87;
-  --color-brand-lime-hover: #C2E073;
-  --color-brand-lime-soft: #D4EAA2;
-  --color-brand-lime-light: #E7F3D0;
-  --color-brand-badge: #CEE795;
-  --color-brand-cream: #F4F3EE;
-  --color-brand-cream-light: #F7F7F0;
-  --color-brand-cream-pure: #FAFBF7;
-  --color-brand-muted: #4A5D50;
-  --color-brand-muted-light: #6B7E72;
-  --color-brand-border: #E2E6DA;
-  --color-brand-border-dark: #1F4532;
+  --color-brand-forest-dark: #0d2218;
+  --color-brand-forest-light: #1c412e;
+  --color-brand-lime: #d0ea87;
+  --color-brand-lime-hover: #c2e073;
+  --color-brand-lime-soft: #d4eaa2;
+  --color-brand-lime-light: #e7f3d0;
+  --color-brand-badge: #cee795;
+  --color-brand-cream: #f4f3ee;
+  --color-brand-cream-light: #f7f7f0;
+  --color-brand-cream-pure: #fafbf7;
+  --color-brand-muted: #4a5d50;
+  --color-brand-muted-light: #6b7e72;
+  --color-brand-border: #e2e6da;
+  --color-brand-border-dark: #1f4532;
 
-  --color-team-sage: #D8E6D3;
-  --color-team-olive: #DEE8BC;
-  --color-team-cream: #F1EBD6;
+  --color-team-sage: #d8e6d3;
+  --color-team-olive: #dee8bc;
+  --color-team-cream: #f1ebd6;
 }
 
 .focus-ring {
@@ -52,7 +62,9 @@ body {
 }
 .focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #F4F3EE, 0 0 0 4px #143323;
+  box-shadow:
+    0 0 0 2px #f4f3ee,
+    0 0 0 4px #143323;
 }
 
 .focus-ring-dark {
@@ -60,7 +72,9 @@ body {
 }
 .focus-ring-dark:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #143323, 0 0 0 4px #D0EA87;
+  box-shadow:
+    0 0 0 2px #143323,
+    0 0 0 4px #d0ea87;
 }
 
 @keyframes marquee {
@@ -100,7 +114,7 @@ body {
 }
 
 .bg-canvas {
-  background-color: #F4F3EE;
+  background-color: #f4f3ee;
 }
 
 @keyframes card-fade-in {

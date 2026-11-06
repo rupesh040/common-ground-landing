@@ -1,4 +1,4 @@
-# Common Ground
+# Common Ground Landing
 
 A responsive Next.js website based on the supplied Common Ground references. It includes Home, About Us, Our Causes, Our Team, Gallery, Blog, FAQs, Contact Us, and Privacy pages.
 

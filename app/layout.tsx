@@ -38,9 +38,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans bg-[#F4F3EE] text-[#14281D] selection:bg-[#D0EA87] selection:text-[#143323]">
         <Navbar data={headerData} />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer data={footerData} />
       </body>
     </html>

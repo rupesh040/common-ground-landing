@@ -1,24 +1,21 @@
 import React from "react";
 import Hero from "@/components/Hero";
-import Ticker from "@/components/Ticker";
 import About from "@/components/About";
 import Causes from "@/components/Causes";
-import RootedInCare from "@/components/RootedInCare";
-import VolunteerCTA from "@/components/VolunteerCTA";
+import TeamGrid from "@/components/TeamGrid";
+import GalleryView from "@/components/GalleryView";
 import FAQ from "@/components/FAQ";
-import Blog from "@/components/Blog";
-
+import ContactForm from "@/components/ContactForm";
 export default function Home() {
   return (
     <>
       <Hero />
-      {/* <Ticker />  */}
       <About />
-      <Causes />
-      <RootedInCare />
-      <VolunteerCTA />
+      <Causes hideTopLink />
+      <TeamGrid />
+      <GalleryView />
       <FAQ />
-      <Blog />
+      <ContactForm />
     </>
   );
 }

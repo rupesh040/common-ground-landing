@@ -9,76 +9,34 @@
         "pages": {
           "home": {
             "components": [
-              { "key": "Hero", "component": "CommonGroundHero1" },
-              { "key": "Ticker", "component": "CommonGroundTicker1" },
-              { "key": "About", "component": "CommonGroundAbout1" },
-              { "key": "Causes", "component": "CommonGroundCauses1" },
-              { "key": "RootedInCare", "component": "CommonGroundRooted1" },
-              { "key": "VolunteerCTA", "component": "CommonGroundVolunteerCTA1" },
-              { "key": "FAQ", "component": "CommonGroundFAQ1" },
-              { "key": "Blog", "component": "CommonGroundBlog1" }
-            ]
-          },
-          "about-us": {
-            "components": [
-              { "key": "PageBanner", "component": "AboutPageBanner" },
-              { "key": "About", "component": "CommonGroundAbout1" },
-              { "key": "RootedInCare", "component": "CommonGroundRooted1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "causes": {
-            "components": [
-              { "key": "PageBanner", "component": "CausesPageBanner" },
-              { "key": "Causes", "component": "CommonGroundCauses1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "cause-detail": {
-            "components": [
-              { "key": "CauseDetail", "component": "CommonGroundCauseDetail1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "our-team": {
-            "components": [
-              { "key": "PageBanner", "component": "TeamPageBanner" },
-              { "key": "TeamSection", "component": "CommonGroundTeam1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "gallery": {
-            "components": [
-              { "key": "PageBanner", "component": "GalleryPageBanner" },
-              { "key": "GallerySection", "component": "CommonGroundGallery1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "blog": {
-            "components": [
-              { "key": "PageBanner", "component": "BlogPageBanner" },
-              { "key": "Blog", "component": "CommonGroundBlog1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "blog-detail": {
-            "components": [
-              { "key": "BlogDetail", "component": "CommonGroundBlogDetail1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "faq": {
-            "components": [
-              { "key": "PageBanner", "component": "FAQPageBanner" },
-              { "key": "FAQPageSection", "component": "CommonGroundFAQPage1" },
-              { "key": "PreFooterCTA", "component": "CommonGroundPreFooterCTA1" }
-            ]
-          },
-          "contact": {
-            "components": [
-              { "key": "PageBanner", "component": "ContactPageBanner" },
-              { "key": "ContactSection", "component": "CommonGroundContact1" },
-              { "key": "MarqueeBannerSmall", "component": "CommonGroundMarqueeBannerSmall1" }
+              {
+                "key": "Hero",
+                "component": "CommonGroundHero1"
+              },
+              {
+                "key": "About",
+                "component": "CommonGroundAbout1"
+              },
+              {
+                "key": "Causes",
+                "component": "CommonGroundCauses1"
+              },
+              {
+                "key": "TeamSection",
+                "component": "CommonGroundTeam1"
+              },
+              {
+                "key": "GallerySection",
+                "component": "CommonGroundGallery1"
+              },
+              {
+                "key": "FAQ",
+                "component": "CommonGroundFAQ1"
+              },
+              {
+                "key": "ContactSection",
+                "component": "CommonGroundContact1"
+              }
             ]
           }
         }
@@ -88,36 +46,6 @@
       "site": {
         "title": "Common Ground | Planting hope, growing change",
         "description": "A better world starts with us. Seeking justice, nurturing peace, and empowering communities through grassroots action."
-      },
-      "pages": {
-        "about-us": {
-          "title": "About Us | Common Ground",
-          "description": "Learn about Common Ground, our mission, values, and community-driven approach."
-        },
-        "causes": {
-          "title": "Our Causes | Common Ground",
-          "description": "Explore our active impact areas in nature conservation, youth education, and community wellbeing."
-        },
-        "our-team": {
-          "title": "Our Team | Common Ground",
-          "description": "Different strengths, one shared purpose. Meet the caring community and team behind Common Ground."
-        },
-        "gallery": {
-          "title": "Gallery | Common Ground",
-          "description": "Small moments, something meaningful. A visual glimpse of connection and care at Common Ground."
-        },
-        "blog": {
-          "title": "Blog & Journal | Common Ground",
-          "description": "Good ideas, shared freely. Thoughts on caring for our planet, learning, and community."
-        },
-        "faq": {
-          "title": "Frequently Asked Questions | Common Ground",
-          "description": "A little clarity, a good place to start. Common questions about volunteering, causes, and support."
-        },
-        "contact": {
-          "title": "Contact Us | Common Ground",
-          "description": "A little hello, a new possibility. Connect with Common Ground and share your ideas or time."
-        }
       }
     },
     "sections": {
@@ -127,22 +55,41 @@
             "logo": {
               "name": "common ground",
               "dot": ".",
-              "subtitle": "Planting hope, growing change",
               "image": "/images/logo.png"
             },
             "navLinks": [
-              { "name": "Home", "href": "/", "active": true },
-              { "name": "About Us", "href": "/about-us" },
-              { "name": "Our Causes", "href": "/causes" },
-              { "name": "Our Team", "href": "/our-team" },
-              { "name": "Gallery", "href": "/gallery" },
-              { "name": "Blog", "href": "/blog" },
-              { "name": "FAQs", "href": "/faq" },
-              { "name": "Contact Us", "href": "/contact" }
+              {
+                "name": "Home",
+                "href": "#hero"
+              },
+              {
+                "name": "About",
+                "href": "#about"
+              },
+              {
+                "name": "Causes",
+                "href": "#causes"
+              },
+              {
+                "name": "Team",
+                "href": "#team"
+              },
+              {
+                "name": "Gallery",
+                "href": "#gallery"
+              },
+              {
+                "name": "FAQ",
+                "href": "#faq"
+              },
+              {
+                "name": "Contact",
+                "href": "#contact"
+              }
             ],
             "button": {
               "text": "Donate",
-              "href": ""
+              "href": "#"
             }
           }
         }
@@ -150,50 +97,31 @@
       "Hero": {
         "variants": {
           "CommonGroundHero1": {
+            "id": "hero",
             "bgColor": "#F7F7F0",
-            "eyebrow": "SEEKING JUSTICE, NURTURING PEACE",
-            "headingPart1": "A better world",
-            "headingPart2": "starts with us.",
+            "breadcrumb": "Seeking Justice, Nurturing Peace",
+            "headingPart1": "Planting hope,",
+            "headingPart2": "growing change.",
+            "description": "A better world starts with us. Seeking justice, nurturing peace, and empowering communities through grassroots action.",
             "primaryButton": {
-              "text": "Become a Volunteer",
-              "href": "/contact"
-            },
-            "socialProof": {
-              "donorsCount": "100+",
-              "donorsLabel": "Donors & Partners Supporting Our Mission",
-              "avatars": [
-                "/images/avatar1.svg",
-                "/images/avatar2.svg",
-                "/images/avatar3.svg"
-              ]
+              "text": "Support Our Work",
+              "href": "#causes"
             },
             "image": "/images/hero_hands_sprout.jpg",
+            "imageAlt": "Hands holding rich fertile soil with sprouting green seedling",
             "circularBadge": {
               "curvedText": "HOPE & HEALING FOR COMMUNITIES • HOPE & HEALING •",
-              "icon": "sprout",
-              "badgeText": "Good things grow together."
+              "badgeText": "Good things grow together.",
+              "iconImage": "/images/sub-logo.png"
             }
-          }
-        }
-      },
-      "Ticker": {
-        "variants": {
-          "CommonGroundTicker1": {
-            "items": [
-              "EMPOWERING COMMUNITIES",
-              "PROMOTING SUSTAINABILITY",
-              "NURTURING GROWTH",
-              "FOSTERING RESILIENCE",
-              "CREATING LASTING IMPACT",
-              "HEALING OUR COMMON HOME"
-            ],
-            "speedSeconds": 28
           }
         }
       },
       "About": {
         "variants": {
           "CommonGroundAbout1": {
+            "id": "about",
+            "bgColor": "#FAF9F5",
             "eyebrow": "GET TO KNOW ABOUT US",
             "headingPart1": "Good things happen",
             "headingPart2": "when we",
@@ -202,40 +130,29 @@
               {
                 "id": "purpose",
                 "tag": "PURPOSE",
-                "icon": "sub-logo",
+                "icon": "/images/sub-logo-bw.png",
                 "title": "Partnering for Real Change",
                 "description": "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
-                "bottomTag": "Community-Driven Development"
+                "bottomTag": "Community-Driven Development",
+                "href": "#contact"
               },
               {
                 "id": "action",
                 "tag": "ACTION",
-                "icon": "sub-logo",
+                "icon": "/images/sub-logo-bw.png",
                 "title": "Sustainable Initiatives",
                 "description": "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment.",
-                "bottomTag": "Holistic Rural Empowerment"
+                "bottomTag": "Holistic Rural Empowerment",
+                "href": "#contact"
               },
               {
                 "id": "ethos",
                 "tag": "ETHOS",
-                "icon": "sub-logo",
+                "icon": "/images/sub-logo-bw.png",
                 "title": "Rooted in Care",
                 "description": "Rooted in transparency, our community initiatives nurture long-term stability and sustainable local stewardship across rural regions.",
-                "badges": ["Grassroots", "Sustainable", "Transparent"]
-              }
-            ],
-            "paragraphs": [
-              "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
-              "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment."
-            ],
-            "links": [
-              {
-                "text": "Get to know us",
-                "href": "/about-us"
-              },
-              {
-                "text": "Our vision & mission",
-                "href": "/about-us#mission"
+                "badges": ["Grassroots", "Sustainable", "Transparent"],
+                "href": "#contact"
               }
             ]
           }
@@ -244,292 +161,49 @@
       "Causes": {
         "variants": {
           "CommonGroundCauses1": {
+            "id": "causes",
             "eyebrow": "OUR IMPACT AREAS",
             "headingPart1": "Small actions.",
             "headingItalic": "Real possibilities.",
-            "topLink": {
-              "text": "Browse all our causes",
-              "href": "/causes"
-            },
             "items": [
               {
-                "id": "environment",
-                "category": "ENVIRONMENT & NATURE",
+                "id": "cause-environment",
+                "category": "ENVIRONMENT",
                 "title": "Care for our planet.",
-                "description": "From local tree planting to global climate initiatives, discover how we safeguard nature.",
+                "description": "From local tree planting to global climate initiatives, discover how we safeguard nature and revive degraded landscapes.",
                 "image": "/images/cause_environment.jpg",
-                "linkText": "Read more details",
-                "href": "/causes/environment",
+                "linkText": "Get involved",
+                "href": "#contact",
                 "tagIcon": "leaf"
               },
               {
-                "id": "education",
-                "category": "EDUCATION & YOUTH",
-                "title": "Open doors to learning.",
-                "description": "Giving young minds the tools, classroom spaces, and mentors they need to shape tomorrow.",
+                "id": "cause-education",
+                "category": "EDUCATION",
+                "title": "Every child learning.",
+                "description": "Equipping rural classrooms with modern learning tools, compassionate teachers, and quality literacy programs.",
                 "image": "/images/cause_education.jpg",
-                "linkText": "Read more details",
-                "href": "/causes/education",
+                "linkText": "Get involved",
+                "href": "#contact",
                 "tagIcon": "book"
               },
               {
-                "id": "community",
-                "category": "COMMUNITY HEALTH",
-                "title": "Bring people closer.",
-                "description": "Building healthier communities with mobile clinics, mental health care, and nutrition.",
+                "id": "cause-community",
+                "category": "COMMUNITY",
+                "title": "Stronger together.",
+                "description": "Empowering neighborhood leaders, women's cooperatives, and small business owners to build enduring self-reliance.",
                 "image": "/images/cause_community.jpg",
-                "linkText": "Read more details",
-                "href": "/causes/community",
+                "linkText": "Get involved",
+                "href": "#contact",
                 "tagIcon": "users"
               }
             ]
           }
         }
       },
-      "RootedInCare": {
-        "variants": {
-          "CommonGroundRooted1": {
-            "leftCard": {
-              "word1": "rooted",
-              "word2": "in care.",
-              "tagline": "Rooted in grassroots compassion, blossoming across lives."
-            },
-            "eyebrow": "HOW WE WORK",
-            "headingPart1": "With communities.",
-            "headingItalic": "Every step of the way.",
-            "description": "Real, lasting progress happens when people are heard, respected, and empowered to lead their own transformation.",
-            "steps": [
-              {
-                "number": "01",
-                "title": "Listen First",
-                "description": "We take time to understand the unique challenges and priorities of each community."
-              },
-              {
-                "number": "02",
-                "title": "Grow Together",
-                "description": "Co-creating solutions that are sustainable, locally-owned, and enduring."
-              },
-              {
-                "number": "03",
-                "title": "Keep Showing Up",
-                "description": "Long-term commitment because real change takes consistency and dedication."
-              }
-            ]
-          }
-        }
-      },
-      "VolunteerCTA": {
-        "variants": {
-          "CommonGroundVolunteerCTA1": {
-            "eyebrow": "A CALL FOR VOLUNTEERS",
-            "headingPart1": "You don't have to change the whole world.",
-            "headingItalic": "Just start with your corner.",
-            "subtitle": "BECOME AN ACTIVE VOLUNTEER. JOIN OUR HANDS TO MAKE A DIFFERENCE.",
-            "primaryButton": {
-              "text": "Become a Volunteer",
-              "href": "/contact"
-            },
-            "secondaryButton": {
-              "text": "Discover our projects",
-              "href": "/causes"
-            },
-            "floralQuote": "A life lived for others is a life well lived."
-          }
-        }
-      },
-      "FAQ": {
-        "variants": {
-          "CommonGroundFAQ1": {
-            "eyebrow": "FREQUENTLY ASKED QUESTIONS",
-            "headingPart1": "Curious about",
-            "headingItalic": "getting involved?",
-            "topLink": {
-              "text": "View all FAQs",
-              "href": "/faq"
-            },
-            "items": [
-              {
-                "id": "faq-1",
-                "question": "Is my donation tax-deductible in India and overseas?",
-                "answer": "Yes, all contributions are eligible for 80G tax deductions in India and equivalent 501(c)(3) tax deductions in partner countries. Official automated tax receipts are emailed immediately."
-              },
-              {
-                "id": "faq-2",
-                "question": "Can I sponsor a specific community project or village?",
-                "answer": "Absolutely. You can designate your donations directly toward education kits, native tree orchards, or rural healthcare camps. You will receive quarterly milestone reports and photo updates."
-              },
-              {
-                "id": "faq-3",
-                "question": "How do I become an international or remote volunteer?",
-                "answer": "We welcome digital and remote volunteers worldwide across content, web development, youth tutoring, and fundraising strategy, as well as on-ground service residencies."
-              },
-              {
-                "id": "faq-4",
-                "question": "Where does my money go and how is it accounted for?",
-                "answer": "More than 88% of all funds directly support grassroots programmes and field initiatives. Our financial audits and annual impact reports are publicly available for full transparency."
-              }
-            ]
-          }
-        }
-      },
-      "Blog": {
-        "variants": {
-          "CommonGroundBlog1": {
-            "eyebrow": "STORIES & ARTICLES",
-            "headingPart1": "Ideas worth",
-            "headingItalic": "growing together.",
-            "topLink": {
-              "text": "View all blogs",
-              "href": "/blog"
-            },
-            "items": [
-              {
-                "id": "blog-1",
-                "category": "ENVIRONMENT",
-                "date": "04 May 2026",
-                "readTime": "4 MIN READ",
-                "title": "Small acts, greener neighborhoods.",
-                "description": "A shared patch of green can begin with a conversation, a few willing hands, and the time to care for what grows.",
-                "image": "/images/cause_environment.jpg",
-                "linkText": "Read the story",
-                "href": "/blog/small-acts-greener-neighborhoods"
-              },
-              {
-                "id": "blog-2",
-                "category": "EDUCATION",
-                "date": "28 Apr 2026",
-                "readTime": "4 MIN READ",
-                "title": "Learning begins with belonging.",
-                "description": "The most useful learning space is one where questions are welcome and everyone has a way to take part.",
-                "image": "/images/cause_education.jpg",
-                "linkText": "Read the story",
-                "href": "/blog/learning-begins-with-belonging"
-              },
-              {
-                "id": "blog-3",
-                "category": "COMMUNITY",
-                "date": "15 Apr 2026",
-                "readTime": "4 MIN READ",
-                "title": "The quiet power of showing up.",
-                "description": "Community takes shape through small, dependable moments of attention. Here are a few ways to make space for them.",
-                "image": "/images/cause_community.jpg",
-                "linkText": "Read the story",
-                "href": "/blog/the-quiet-power-of-showing-up"
-              }
-            ]
-          }
-        }
-      },
-      "Footer": {
-        "variants": {
-          "CommonGroundFooter1": {
-            "logo": {
-              "name": "common ground",
-              "dot": ".",
-              "tagline": "Small acts. Lasting change.",
-              "image": "/images/logo-dark.png"
-            },
-            "columns": [
-              {
-                "title": "Quick Links",
-                "links": [
-                  { "name": "Home", "href": "/" },
-                  { "name": "About Us", "href": "/about-us" },
-                  { "name": "Our Causes", "href": "/causes" },
-                  { "name": "Our Team", "href": "/our-team" }
-                ]
-              },
-              {
-                "title": "Explore",
-                "links": [
-                  { "name": "Gallery", "href": "/gallery" },
-                  { "name": "Blog", "href": "/blog" },
-                  { "name": "FAQs", "href": "/faq" },
-                  { "name": "Contact Us", "href": "/contact" }
-                ]
-              }
-            ],
-            "contact": {
-              "title": "Contact Us",
-              "email": "info@xyz.com",
-              "phone": "+1 000-000-000",
-              "address": "124 Community Way, Suite 300, Austin, TX 78701"
-            },
-            "social": [
-              { "name": "Facebook", "href": "https://facebook.com", "icon": "facebook" },
-              { "name": "Instagram", "href": "https://instagram.com", "icon": "instagram" },
-              { "name": "Twitter", "href": "https://x.com", "icon": "twitter" },
-              { "name": "LinkedIn", "href": "https://linkedin.com", "icon": "linkedin" }
-            ],
-            "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
-            "backToTopText": "Back to top ↑"
-          }
-        }
-      },
-      "PageBanners": {
-        "variants": {
-          "AboutPageBanner": {
-            "breadcrumb": "Home / About Us",
-            "eyebrow": "OUR PURPOSE & VALUES",
-            "headingPart1": "Who we are,",
-            "headingItalic": "what we stand for.",
-            "subtitle": "Discover the philosophy, collective efforts, and guiding principles behind Common Ground's community missions.",
-            "circularBadgeText": "Good things grow together.",
-            "image": "/images/banner.png"
-          },
-          "CausesPageBanner": {
-            "breadcrumb": "Home / Our Causes",
-            "eyebrow": "WHAT WE NURTURE",
-            "headingPart1": "Grassroots initiatives,",
-            "headingItalic": "meaningful change.",
-            "subtitle": "Discover our community-led projects making an enduring difference across conservation, education, and mutual care.",
-            "circularBadgeText": "Good things grow together."
-          },
-          "TeamPageBanner": {
-            "breadcrumb": "Home / Our Team",
-            "eyebrow": "MEET OUR PEOPLE",
-            "headingPart1": "Different strengths.",
-            "headingItalic": "One shared purpose.",
-            "subtitle": "Meaningful work takes many kinds of care. There is room for every kind of contribution.",
-            "circularBadgeText": "Good things grow together."
-          },
-          "GalleryPageBanner": {
-            "breadcrumb": "Home / Gallery",
-            "eyebrow": "OUR GALLERY",
-            "headingPart1": "Small moments.",
-            "headingItalic": "Something meaningful.",
-            "subtitle": "A glimpse of the care, curiosity, and connection at the heart of our vision.",
-            "circularBadgeText": "Good things grow together."
-          },
-          "BlogPageBanner": {
-            "breadcrumb": "Home / Blog",
-            "eyebrow": "THE COMMON GROUND JOURNAL",
-            "headingPart1": "Stories & dispatches,",
-            "headingItalic": "from the ground up.",
-            "subtitle": "Perspectives on ecological stewardship, community literacy, and grassroots solidarity from our team and volunteers.",
-            "circularBadgeText": "Good things grow together."
-          },
-          "FAQPageBanner": {
-            "breadcrumb": "Home / FAQs",
-            "eyebrow": "A FEW HELPFUL ANSWERS",
-            "headingPart1": "A little clarity.",
-            "headingItalic": "A good place to start.",
-            "subtitle": "Explore the questions people often have about taking part, supporting a cause, and this website.",
-            "circularBadgeText": "Good things grow together."
-          },
-          "ContactPageBanner": {
-            "breadcrumb": "Home / Contact Us",
-            "eyebrow": "GET IN TOUCH",
-            "headingPart1": "We'd love to hear",
-            "headingItalic": "from you.",
-            "subtitle": "Whether you have an idea to share, a question to ask, or a desire to volunteer, our team is always here to connect.",
-            "circularBadgeText": "Good things grow together."
-          }
-        }
-      },
       "TeamSection": {
         "variants": {
           "CommonGroundTeam1": {
+            "id": "team",
             "eyebrow": "THE PEOPLE BEHIND THE IDEA",
             "headingPart1": "Many hands.",
             "headingItalic": "A caring community.",
@@ -542,520 +216,275 @@
                 "initials": "ML",
                 "roleTag": "MAKING CONNECTIONS",
                 "title": "Director of Community Outreach",
-                "description": "Listens directly to local ideas, convenes grassroots town halls, and coordinates neighborhood initiatives to ensure every resident has an active voice in community decisions.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "sage",
                 "image": "/images/team_person_1.jpg"
               },
               {
-                "id": "marcus-vance",
-                "name": "Marcus Vance",
-                "position": "Lead Environmental Specialist",
-                "initials": "MV",
-                "roleTag": "GROWING A GREENER FUTURE",
-                "title": "Lead Environmental Specialist",
-                "description": "Spearheads urban tree planting, oversees neighborhood community gardens, and leads hands-on ecological restoration and sustainability workshops.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
+                "id": "david-okafor",
+                "name": "David Okafor",
+                "position": "Field Coordinator & Ecologist",
+                "initials": "DO",
+                "roleTag": "ON THE GROUND",
+                "title": "Field Coordinator & Ecologist",
                 "bgVariant": "olive",
                 "image": "/images/team_person_2.jpg"
               },
               {
-                "id": "elena-rostova",
-                "name": "Elena Rostova",
-                "position": "Head of Youth Learning & Literacy",
-                "initials": "ER",
-                "roleTag": "OPENING POSSIBILITIES",
-                "title": "Head of Youth Learning & Literacy",
-                "description": "Designs after-school reading clubs, mentors youth volunteers, and secures book donations and creative educational resources for community centers.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
+                "id": "elena-vasquez",
+                "name": "Elena Vasquez",
+                "position": "Head of Sustainable Programs",
+                "initials": "EV",
+                "roleTag": "PLANNING FOR TOMORROW",
+                "title": "Head of Sustainable Programs",
                 "bgVariant": "cream",
                 "image": "/images/team_person_3.jpg"
               },
               {
-                "id": "david-kalu",
-                "name": "David Kalu",
-                "position": "Volunteer Care & Engagement Manager",
-                "initials": "DK",
-                "roleTag": "HELPING PEOPLE TAKE PART",
-                "title": "Volunteer Care & Engagement Manager",
-                "description": "Welcomes, trains, and supports our network of volunteers, matching each person's skills and availability with meaningful community activities.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
+                "id": "samuel-adebayo",
+                "name": "Samuel Adebayo",
+                "position": "Youth Literacy & Schools Lead",
+                "initials": "SA",
+                "roleTag": "EMPOWERING MINDS",
+                "title": "Youth Literacy & Schools Lead",
                 "bgVariant": "sage",
                 "image": "/images/team_person_4.jpg"
               },
               {
-                "id": "sarah-jenkins",
-                "name": "Sarah Jenkins",
-                "position": "Director of Partnerships & Alliances",
-                "initials": "SJ",
-                "roleTag": "WORKING TOGETHER",
-                "title": "Director of Partnerships & Alliances",
-                "description": "Builds collaborative relationships with local non-profits, ethical businesses, and civic groups to expand resources and amplify community impact.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
+                "id": "clara-montgomery",
+                "name": "Clara Montgomery",
+                "position": "Water Rights Advocate & Policy",
+                "initials": "CM",
+                "roleTag": "EQUITY & JUSTICE",
+                "title": "Water Rights Advocate & Policy",
                 "bgVariant": "olive",
                 "image": "/images/team_person_5.jpg"
               },
               {
-                "id": "amir-patel",
-                "name": "Amir Patel",
-                "position": "Operations & Logistics Coordinator",
-                "initials": "AP",
-                "roleTag": "CARING FOR THE DETAILS",
-                "title": "Operations & Logistics Coordinator",
-                "description": "Manages day-to-day NGO logistics, transparent budgeting, and supply distribution for weekend volunteer drives and emergency relief programs.",
-                "noteBadge": "A LITTLE CARE GOES A LONG WAY",
+                "id": "tariq-mansoor",
+                "name": "Tariq Mansoor",
+                "position": "Operations & Logistics Manager",
+                "initials": "TM",
+                "roleTag": "KEEPING IT RUNNING",
+                "title": "Operations & Logistics Manager",
                 "bgVariant": "cream",
                 "image": "/images/team_person_6.jpg"
               }
-            ],
-            "calloutCard": {
-              "eyebrow": "YOU HAVE SOMETHING TO OFFER",
-              "headingPart1": "Good work begins",
-              "headingItalic": "with people who care.",
-              "description": "A practical skill. A fresh idea. A little time. Explore how your contribution could fit into the bigger picture.",
-              "button": {
-                "text": "Find your way to help",
-                "href": "/contact"
-              },
-              "sideQuotePart1": "No special title needed.",
-              "sideQuoteItalic": "Just a place to start."
-            }
+            ]
           }
         }
       },
       "GallerySection": {
         "variants": {
           "CommonGroundGallery1": {
-            "loadMoreButtonText": "Load More",
-            "viewPhotoText": "View Photo",
-            "initialCount": 4,
-            "batchSize": 4,
-            "categories": [
-              { "label": "All", "value": "all", "count": 4 },
-              { "label": "Nature", "value": "nature", "count": 2 },
-              { "label": "Learning", "value": "learning", "count": 1 },
-              { "label": "Community", "value": "community", "count": 1 }
-            ],
+            "id": "gallery",
+            "eyebrow": "OUR GALLERY",
+            "headingPart1": "Small moments.",
+            "headingItalic": "Something meaningful.",
+            "subtitle": "A glimpse of the care, curiosity, and connection at the heart of our vision.",
             "items": [
               {
-                "id": "gal-1",
-                "category": "nature",
-                "categoryLabel": "Nature",
-                "title": "Room to grow, together.",
-                "subtitle": "Hands in the earth. A shared sense of possibility.",
-                "image": "/images/cause_environment.jpg"
+                "id": "moment-garden",
+                "image": "/images/garden.jpg",
+                "title": "Flourishing Community Gardens",
+                "subtitle": "Locals tending to seasonal organic vegetable patches and pollinator sanctuaries."
               },
               {
-                "id": "gal-2",
-                "category": "nature",
-                "categoryLabel": "Nature",
-                "title": "Every small act takes root.",
-                "subtitle": "A young seedling, ready for a new beginning.",
-                "image": "/images/hero_hands_sprout.jpg"
+                "id": "moment-planting",
+                "image": "/images/planting.jpg",
+                "title": "Community Reforestation Days",
+                "subtitle": "Youth volunteers planting native saplings across regional conservation reserves."
               },
               {
-                "id": "gal-3",
-                "category": "learning",
-                "categoryLabel": "Learning",
-                "title": "A little curiosity goes a long way.",
-                "subtitle": "Making space for questions, discovery, and learning.",
-                "image": "/images/cause_education.jpg"
+                "id": "moment-learning",
+                "image": "/images/learning.jpg",
+                "title": "Inspiring Outdoor Workshops",
+                "subtitle": "Interactive lessons on soil health, seed collection, and climate resilience."
               },
               {
-                "id": "gal-4",
-                "category": "community",
-                "categoryLabel": "Community",
-                "title": "Belonging begins with a welcome.",
-                "subtitle": "Making time to connect with the people around us.",
-                "image": "/images/cause_community.jpg"
+                "id": "moment-community",
+                "image": "/images/community.jpg",
+                "title": "Grassroots Town Halls",
+                "subtitle": "Community members uniting to shape priorities and steward shared initiatives."
               },
               {
-                "id": "gal-5",
-                "category": "nature",
-                "categoryLabel": "Nature",
-                "title": "Greening our shared neighborhoods.",
-                "subtitle": "Volunteers tending the community raised beds and urban plantings.",
-                "image": "/images/garden.jpg"
+                "id": "moment-nursery",
+                "image": "/images/banner_plant.jpg",
+                "title": "Native Plant Propagation",
+                "subtitle": "Nurturing resilient seedlings for community reforestation and habitat revival."
               },
               {
-                "id": "gal-6",
-                "category": "community",
-                "categoryLabel": "Community",
-                "title": "Connecting across generations.",
-                "subtitle": "Neighbors coming together for shared weekend community gatherings.",
-                "image": "/images/community.jpg"
-              },
-              {
-                "id": "gal-7",
-                "category": "learning",
-                "categoryLabel": "Learning",
-                "title": "Youth workshops and creative discovery.",
-                "subtitle": "Hands-on projects sparking curious minds and teamwork.",
-                "image": "/images/learning.jpg"
-              },
-              {
-                "id": "gal-8",
-                "category": "community",
-                "categoryLabel": "Community",
-                "title": "Grassroots hands making lasting impact.",
-                "subtitle": "Dedicated volunteer teams leading care and restoration drives.",
-                "image": "/images/team_volunteer.jpg"
+                "id": "moment-canopy",
+                "image": "/images/banner_plant_right.jpg",
+                "title": "Protected Ecological Canopies",
+                "subtitle": "Sustained canopy stewardship ensuring thriving wildlife and fresh air for generations."
               }
-            ],
-            "footerNote": "These photographs illustrate community themes. They are not presented as records of Common Ground projects."
+            ]
+          }
+        }
+      },
+      "FAQ": {
+        "variants": {
+          "CommonGroundFAQ1": {
+            "id": "faq",
+            "eyebrow": "QUESTIONS & CONVERSATION",
+            "headingPart1": "Common ground,",
+            "headingItalic": "honest answers.",
+            "subtitle": "Find clear answers on our grassroots initiatives, transparent fund allocation, and how you can take part.",
+            "items": [
+              {
+                "id": "faq-1",
+                "question": "What is Common Ground?",
+                "answer": "Common Ground is an illustrative NGO concept designed to showcase how grassroots community initiatives, environmental conservation, and local education can work together. In a real deployment, this would be your mission, history, and core values."
+              },
+              {
+                "id": "faq-2",
+                "question": "How are donations and funds used?",
+                "answer": "Every contribution directly supports community-led programs: purchasing organic seeds, building clean rainwater catchment, providing classroom supplies, and training grassroots coordinators. We maintain open financial reporting with quarterly public impact statements."
+              },
+              {
+                "id": "faq-3",
+                "question": "Can I volunteer or get involved locally?",
+                "answer": "Yes! Whether you're an educator, gardener, event organizer, or neighbor who wants to lend a hand, we welcome all backgrounds. Explore our Causes and Contact sections to connect with a field team in your area."
+              },
+              {
+                "id": "faq-4",
+                "question": "How do you choose your project locations?",
+                "answer": "We respond exclusively to invitations from local communities. Before launching any initiative, our outreach team spends months listening to residents, assessing environmental needs, and establishing local leadership committees."
+              },
+              {
+                "id": "faq-5",
+                "question": "Are you a registered non-profit organization?",
+                "answer": "Common Ground operates as a registered 501(c)(3) tax-exempt non-profit organization. All donations within the United States are tax-deductible to the full extent permissible by law."
+              }
+            ]
           }
         }
       },
       "ContactSection": {
         "variants": {
           "CommonGroundContact1": {
-            "leftEyebrow": "CONNECT WITH COMMON GROUND",
-            "leftHeadingPart1": "Good things begin",
+            "id": "contact",
+            "leftEyebrow": "GET IN TOUCH",
+            "leftHeadingPart1": "Every good change starts",
             "leftHeadingItalic": "with a conversation.",
-            "leftDescription": "Whether you're ready to get involved or simply curious about our causes, there's room for your voice here.",
+            "leftDescription": "Whether you are interested in volunteering, partnering on a local initiative, or simply learning more about our work, we would love to hear from you.",
             "contactDetails": [
               {
                 "icon": "email",
                 "label": "Email Us",
-                "value": "info@xyz.com",
-                "href": "mailto:info@xyz.com",
+                "value": "info@commonground.org",
+                "href": "mailto:info@commonground.org",
                 "note": "Send us your inquiry anytime"
               },
               {
                 "icon": "phone",
                 "label": "Call Us",
                 "value": "+1 000-000-000",
-                "href": "tel:+1000000000",
-                "note": "Mon – Fri, 9:00 AM – 5:00 PM EST"
+                "href": "tel:+15125550198",
+                "note": "Mon – Fri, 9:00 AM – 5:00 PM CST"
               },
               {
                 "icon": "address",
                 "label": "Our Location",
-                "value": "124 Community Way, Suite 300, Austin, TX 78701, USA",
+                "value": "Tavita Yohe 314 Shunpike Rd Chatham Twp, NJ 07928 United States",
                 "href": "https://maps.google.com/?q=124+Community+Way+Suite+300+Austin+TX+78701",
                 "note": "Open for scheduled community visits"
               }
             ],
-            "image": "/images/cause_community.jpg",
-            "imageCaption": "Every connection is a place to start.",
-            "formEyebrow": "YOUR NEXT STEP",
-            "formHeadingPart1": "Tell us a",
-            "formHeadingItalic": "little more.",
-            "formNotice": "This is a demo contact form. It creates a downloadable draft; no message is sent. Your details stay on this page until you leave or refresh.",
+            "formEyebrow": "SEND AN INQUIRY",
+            "formHeadingPart1": "Tell us how you'd like to",
+            "formHeadingItalic": "get involved.",
+            "formNotice": "We read every message and typically reply within two business days. Your details are never shared.",
             "formSubjects": [
-              "Select a subject",
-              "Volunteering / Giving time",
-              "Suggesting a local community idea",
-              "Partnership or collaboration",
-              "General question about causes"
+              "General inquiry",
+              "Volunteering with us",
+              "Partnership & collaboration",
+              "Press & media inquiry",
+              "Feedback & ideas"
             ],
-            "submitButtonText": "Prepare my contact draft"
+            "nameLabel": "Your name *",
+            "namePlaceholder": "Alex Taylor",
+            "emailLabel": "Email address *",
+            "emailPlaceholder": "alex@example.com",
+            "subjectLabel": "What's on your mind? *",
+            "messageLabel": "Your message *",
+            "messagePlaceholder": "Tell us about your idea or how you'd like to get involved...",
+            "requiredNotice": "* Required fields",
+            "validationError": "Please fill in all required fields.",
+            "successMessage": "Thank you! Your inquiry has been sent successfully. We will get back to you shortly.",
+            "submitButtonText": "Send Inquiry"
           }
         }
       },
-      "FAQPageSection": {
+      "Footer": {
         "variants": {
-          "CommonGroundFAQPage1": {
-            "sidebarTitle": "FIND YOUR ANSWER",
-            "sidebarBox": {
-              "title": "Still curious?",
-              "subtitle": "A good conversation starts with a question.",
-              "linkText": "Contact us",
-              "linkHref": "/contact"
+          "CommonGroundFooter1": {
+            "logo": {
+              "name": "common ground",
+              "dot": ".",
+              "tagline": "Grassroots community initiatives, environmental conservation, and local education. Growing change from the ground up.",
+              "image": "/images/logo-dark.png"
             },
-            "groups": [
+            "columns": [
               {
-                "id": "getting-involved",
-                "categoryTitle": "Getting involved",
-                "items": [
+                "title": "EXPLORE",
+                "links": [
                   {
-                    "id": "faq-inv-1",
-                    "question": "Do I need experience to volunteer?",
-                    "answer": "Not at all. We believe everyone has something valuable to share — whether that is time, an interest in learning, or simply a warm presence. We match people with roles suited to their comfort and skills."
+                    "name": "Home",
+                    "href": "#hero"
                   },
                   {
-                    "id": "faq-inv-2",
-                    "question": "Can an organization get involved?",
-                    "answer": "Yes. We regularly partner with schools, colleges, local businesses, and social enterprises for group volunteer days, skill-sharing workshops, and joint community events."
+                    "name": "About Us",
+                    "href": "#about"
                   },
                   {
-                    "id": "faq-inv-3",
-                    "question": "How much time would I need to give?",
-                    "answer": "Whatever fits your schedule. Some volunteers contribute one afternoon a month at an orchard or reading circle, while others take on structured weekly mentorship."
+                    "name": "causes",
+                    "href": "#causes"
                   },
                   {
-                    "id": "faq-inv-4",
-                    "question": "Can I suggest an idea for my community?",
-                    "answer": "We encourage it! Most of our best initiatives begin as a neighbor's suggestion. Reach out through our contact page and our team will be glad to talk through next steps."
-                  }
-                ]
-              },
-              {
-                "id": "causes-support",
-                "categoryTitle": "Our causes & support",
-                "items": [
-                  {
-                    "id": "faq-cs-1",
-                    "question": "How can I support the work?",
-                    "answer": "You can support through financial contributions, donating learning materials and garden tools, volunteering your time, or simply sharing our stories with your network."
+                    "name": "Team",
+                    "href": "#team"
                   },
                   {
-                    "id": "faq-cs-2",
-                    "question": "What causes does Common Ground focus on?",
-                    "answer": "Our three core pillars are Environment & Nature (urban tree planting and ecological care), Education & Youth (after-school hubs and literacy circles), and Community Health (wellbeing, nutrition, and connection)."
+                    "name": "Gallery",
+                    "href": "#gallery"
                   },
                   {
-                    "id": "faq-cs-3",
-                    "question": "Can I make a payment on this website?",
-                    "answer": "This website is a conceptual demonstration. We do not process live card or banking payments directly on this demo platform."
-                  },
-                  {
-                    "id": "faq-cs-4",
-                    "question": "Does the site show verified project results?",
-                    "answer": "All case studies and articles represent realistic community models and illustrative themes designed to inspire grassroots action."
-                  }
-                ]
-              },
-              {
-                "id": "about-website",
-                "categoryTitle": "About this website",
-                "items": [
-                  {
-                    "id": "faq-web-1",
-                    "question": "Is my form sent to someone?",
-                    "answer": "No messages are sent across external servers. Contact forms create an instant downloadable draft for your convenience while keeping all data in your browser."
-                  },
-                  {
-                    "id": "faq-web-2",
-                    "question": "How can I contact the organization?",
-                    "answer": "You can generate a contact draft directly on our Contact Us page, or connect with our community coordinators at community@commonground.org."
-                  },
-                  {
-                    "id": "faq-web-3",
-                    "question": "Where can I read more about the approach?",
-                    "answer": "Visit our About Us and Rooted in Care sections to learn about our 3-step community methodology: Listen First, Grow Together, and Keep Showing Up."
+                    "name": "Faq",
+                    "href": "#faq"
                   }
                 ]
               }
-            ]
-          }
-        }
-      },
-      "PreFooterCTA": {
-        "variants": {
-          "CommonGroundPreFooterCTA1": {
-            "eyebrow": "THERE'S A PLACE FOR YOU HERE",
-            "headingPart1": "A little time.",
-            "headingItalic": "A world of possibility.",
-            "subtitle": "Bring your skills, your ideas, or simply your willingness to help.",
-            "primaryButton": {
-              "text": "Get involved",
-              "href": "/contact"
+            ],
+            "contact": {
+              "email": "info@commonground.org",
+              "phone": "+1 000-000-000",
+              "address": "Tavita Yohe 314 Shunpike Rd Chatham Twp, NJ 07928 United States"
             },
-            "secondaryLink": {
-              "text": "Start a conversation",
-              "href": "/contact"
-            }
-          }
-        }
-      },
-      "MarqueeBannerSmall": {
-        "variants": {
-          "CommonGroundMarqueeBannerSmall1": {
-            "textPart1": "Small acts. Open hearts.",
-            "textItalic": "Something good, together.",
-            "link": {
-              "text": "Find your cause",
-              "href": "/causes"
-            }
-          }
-        }
-      },
-      "CauseDetails": {
-        "items": {
-          "environment": {
-            "slug": "environment",
-            "category": "ENVIRONMENT & NATURE",
-            "title": "Care for our planet.",
-            "subtitle": "From native saplings to community orchards, safeguarding the living earth beneath our feet.",
-            "heroImage": "/images/cause_environment.jpg",
-            "mission": "Our environmental initiatives aim to restore biodiversity, turn neglected spaces into vibrant green corridors, and empower residents to become stewards of their local habitat.",
-            "stats": [
-              { "value": "12,000+", "label": "Native saplings planted" },
-              { "value": "24", "label": "Community gardens cultivated" },
-              { "value": "100%", "label": "Locally-adapted seed varieties" }
-            ],
-            "initiatives": [
+            "social": [
               {
-                "title": "Micro-Orchards & Food Forests",
-                "description": "Transforming empty urban borders into fruitful spaces that cool neighborhoods and provide fresh fruit."
+                "name": "Facebook",
+                "href": "https://facebook.com",
+                "icon": "facebook"
               },
               {
-                "title": "Pollinator Pathways",
-                "description": "Planting native wildflowers to restore wild bees, butterflies, and natural biological balance."
+                "name": "Instagram",
+                "href": "https://instagram.com",
+                "icon": "instagram"
               },
               {
-                "title": "Soil Care & Composting",
-                "description": "Hands-on workshops teaching households how to divert organic food waste and build dark, fertile humus."
+                "name": "Twitter / X",
+                "href": "https://x.com",
+                "icon": "twitter"
+              },
+              {
+                "name": "LinkedIn",
+                "href": "https://linkedin.com",
+                "icon": "linkedin"
               }
             ],
-            "impactQuote": "When we heal the soil, we heal the community that gathers around it.",
-            "quoteAuthor": "Elena Vance, Environmental Coordinator",
-            "waysToHelp": [
-              "Join our weekend morning planting and tree mulching sessions.",
-              "Adopt a community sapling in your neighborhood.",
-              "Donate gardening tools, organic seeds, or compost bins."
-            ]
-          },
-          "education": {
-            "slug": "education",
-            "category": "EDUCATION & YOUTH",
-            "title": "Open doors to learning.",
-            "subtitle": "Nurturing curious minds with books, joyful learning hubs, and steady mentorship.",
-            "heroImage": "/images/cause_education.jpg",
-            "mission": "We create safe, joyful, and resource-rich learning environments where every child feels seen, encouraged, and capable of discovering their fullest potential.",
-            "stats": [
-              { "value": "1,450+", "label": "Children supported weekly" },
-              { "value": "35", "label": "Mobile library stops" },
-              { "value": "180+", "label": "Volunteer mentors" }
-            ],
-            "initiatives": [
-              {
-                "title": "After-School Creative Spaces",
-                "description": "Providing quiet homework corners, art supplies, and guided tutoring for children without study space at home."
-              },
-              {
-                "title": "Shared Books & Little Free Libraries",
-                "description": "Distributing diverse storybooks in regional languages directly into community doorsteps."
-              },
-              {
-                "title": "Youth Leadership & Mentorship",
-                "description": "Pairing high school and vocational students with encouraging mentors to guide their career and personal pathways."
-              }
-            ],
-            "impactQuote": "Education is not an isolated task; it is the collective gift an entire village offers to tomorrow.",
-            "quoteAuthor": "Marcus Thorne, Learning Lead",
-            "waysToHelp": [
-              "Volunteer 1-2 hours a week for evening homework reading circles.",
-              "Donate gently used children's books or stationery kits.",
-              "Host a creative art, music, or science workshop for young learners."
-            ]
-          },
-          "community": {
-            "slug": "community",
-            "category": "COMMUNITY HEALTH",
-            "title": "Bring people closer.",
-            "subtitle": "Building healthier neighborhoods through connection, nourishment, and reliable presence.",
-            "heroImage": "/images/cause_community.jpg",
-            "mission": "Health begins when people are not isolated. We foster circles of support, preventive health education, nutritious shared meals, and spaces for listening.",
-            "stats": [
-              { "value": "8,200+", "label": "Community meals shared" },
-              { "value": "48", "label": "Preventive health wellness camps" },
-              { "value": "95%", "label": "Reported increase in belonging" }
-            ],
-            "initiatives": [
-              {
-                "title": "Neighborhood Wellness Circles",
-                "description": "Gatherings addressing stress, mental wellbeing, and chronic health management in a supportive peer group."
-              },
-              {
-                "title": "Community Pantries & Warm Meals",
-                "description": "Ensuring no elder or family goes through tough weeks without dignified access to wholesome food."
-              },
-              {
-                "title": "Intergenerational Story Hours",
-                "description": "Connecting seniors and young people to share skills, history, and reduce social isolation."
-              }
-            ],
-            "impactQuote": "Loneliness is solved not with big speeches, but with the quiet habit of showing up for each other.",
-            "quoteAuthor": "Priya Sen, Community Coordinator",
-            "waysToHelp": [
-              "Help prep or distribute wholesome meals at community gatherings.",
-              "Become a friendly weekly caller for isolated neighborhood elders.",
-              "Offer medical, nursing, or yoga wellness sessions."
-            ]
-          }
-        }
-      },
-      "BlogDetails": {
-        "items": {
-          "small-acts-greener-neighborhoods": {
-            "slug": "small-acts-greener-neighborhoods",
-            "category": "ENVIRONMENT",
-            "readTime": "4 min read",
-            "date": "04 May 2026",
-            "title": "Small acts, greener neighborhoods.",
-            "subtitle": "How an overgrown corner of land became a focal point for shade, conversation, and renewed community pride.",
-            "heroImage": "/images/cause_environment.jpg",
-            "paragraphs": [
-              "It started with an unused patch of gravel and weeds between two residential alleys. People walked past it every day, their eyes cast downward. Then one Saturday morning, two neighbors brought a wheelbarrow, a shovel, and three bags of organic compost.",
-              "By midday, four more people had stopped to ask what was happening. By the third weekend, there were twenty-two residents clearing debris, planting native elderberry and fig trees, and laying down wood chips donated by a local arborist.",
-              "Green spaces in cities do more than clean the air. They lower summer surface temperatures, absorb storm runoff, and most importantly, create neutral ground where people of different generations and backgrounds can talk without pretense.",
-              "When you work alongside someone with hands in the soil, barriers drop away. You talk about the weather, about family recipes, about when the rains might arrive. In caring for something small and fragile together, you remember how to care for one another."
-            ],
-            "keyTakeaways": [
-              "Begin with whatever small patch of earth is available.",
-              "Invite neighbors early and keep the tools accessible.",
-              "Focus on resilient, indigenous plants that need little watering.",
-              "Celebrate every new sprout as a collective milestone."
-            ],
-            "author": {
-              "name": "Sarah Jenkins",
-              "role": "Community Gardener & Writer",
-              "avatar": "/images/avatar1.svg"
-            }
-          },
-          "learning-begins-with-belonging": {
-            "slug": "learning-begins-with-belonging",
-            "category": "EDUCATION",
-            "readTime": "4 min read",
-            "date": "28 Apr 2026",
-            "title": "Learning begins with belonging.",
-            "subtitle": "Why psychological safety and a warm welcome matter just as much as textbooks and blackboard lessons.",
-            "heroImage": "/images/cause_education.jpg",
-            "paragraphs": [
-              "Walk into any classroom and watch the children's shoulders. When a student feels uncertain, anxious about making a mistake, or out of place, their entire posture tightens. Learning becomes survival rather than exploration.",
-              "At our community reading centers, the first rule has nothing to do with phonics or multiplication tables. It is simply: everyone is greeted by name at the door with a smile and a warm glass of water or tea.",
-              "Before a child can absorb new concepts, their nervous system must register safety. They need to know that asking 'I don't understand' will be met with curiosity and patience rather than embarrassment.",
-              "Over the past three years, our mentors have seen children who barely spoke a word during their first week blossom into voracious storytellers and math problem solvers. Belonging is the soil; learning is what naturally grows from it."
-            ],
-            "keyTakeaways": [
-              "Welcome every learner warmly and acknowledge their presence.",
-              "Normalize mistakes as natural experiments in learning.",
-              "Provide quiet spaces alongside collaborative work tables.",
-              "Celebrate effort and curiosity over flawless performance."
-            ],
-            "author": {
-              "name": "David Aluko",
-              "role": "Youth Learning Coordinator",
-              "avatar": "/images/avatar2.svg"
-            }
-          },
-          "the-quiet-power-of-showing-up": {
-            "slug": "the-quiet-power-of-showing-up",
-            "category": "COMMUNITY",
-            "readTime": "4 min read",
-            "date": "15 Apr 2026",
-            "title": "The quiet power of showing up.",
-            "subtitle": "In an era of grand gestures, long-term dependability remains the most transformative act of care.",
-            "heroImage": "/images/cause_community.jpg",
-            "paragraphs": [
-              "We live in a culture that loves ribbon-cutting ceremonies and dramatic inaugurations. We celebrate the big kickoff, the viral campaign, the sudden surge of energy.",
-              "Yet talk to any elder who has lived in a neighborhood for forty years, and they will tell you that true trust is built by the person who comes back on the rainy Tuesday six months later, when the cameras are gone and the initial excitement has cooled.",
-              "Showing up repeatedly transforms an activity into a relationship. It signals to community members that they are not a project or a case file, but respected friends and partners.",
-              "If you are considering volunteering or supporting an initiative this year, do not worry if you can only give two hours every other week. What matters is the quiet rhythm of consistency. In showing up, you offer the most precious gift of all: reliability."
-            ],
-            "keyTakeaways": [
-              "Consistency always outlasts intensity.",
-              "Be honest about the time you can reliably commit.",
-              "Listen twice as much as you offer advice.",
-              "The smallest recurring gesture creates the deepest trust."
-            ],
-            "author": {
-              "name": "Maria Morales",
-              "role": "Volunteer Liaison",
-              "avatar": "/images/avatar3.svg"
-            }
+            "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
+            "backToTopText": "Back to top"
           }
         }
       }

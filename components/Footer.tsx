@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import type { CommonGroundFooter1Data, SocialLink } from "@/types/content";
 import { footerData } from "@/lib/content";
@@ -12,7 +13,13 @@ interface FooterProps {
   className?: string;
 }
 
-function SocialIcon({ icon, className = "w-[17px] h-[17px] fill-current" }: { icon: string; className?: string }) {
+function SocialIcon({
+  icon,
+  className = "w-[17px] h-[17px] fill-current",
+}: {
+  icon: string;
+  className?: string;
+}) {
   switch (icon) {
     case "facebook":
       return (
@@ -43,15 +50,46 @@ function SocialIcon({ icon, className = "w-[17px] h-[17px] fill-current" }: { ic
   }
 }
 
-export default function Footer({ data = footerData, className = "" }: FooterProps) {
+export default function Footer({
+  data = footerData,
+  className = "",
+}: FooterProps) {
+  const pathname = usePathname();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const backToTopLabel = (data.backToTopText || "Back to top").replace(/↑/g, "").trim();
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.startsWith("#")) {
+      const targetId = href.replace(/^#/, "");
+      if (pathname === "/") {
+        e.preventDefault();
+        if (targetId === "hero" || targetId === "") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.history.pushState(null, "", "/");
+        } else {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+            window.history.pushState(null, "", `#${targetId}`);
+          }
+        }
+      }
+    }
+  };
+
+  const backToTopLabel = (data.backToTopText || "Back to top")
+    .replace(/↑/g, "")
+    .trim();
 
   return (
-    <footer className={`bg-[#143323] text-[#FAFBF7] pt-14 pb-10 border-t border-[#1F4532] overflow-hidden ${className}`}>
+    <footer
+      className={`bg-[#143323] text-[#FAFBF7] py-8 border-t border-[#1F4532] overflow-hidden ${className}`}
+    >
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +98,6 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-12 pb-12 border-b border-[#1F4532]">
-
-          {/* Brand & Social Section */}
           <div className="flex flex-col items-start max-w-sm shrink-0">
             <Link
               href="/"
@@ -100,36 +136,50 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
                     aria-label={`Common Ground on ${s.name}`}
                     className="w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-[#FAFBF7]/85 hover:text-[#143323] hover:bg-[#D0EA87] hover:border-[#D0EA87] hover:scale-105 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87]"
                   >
-                    <SocialIcon icon={s.icon} className="w-[18px] h-[18px] fill-current" />
+                    <SocialIcon
+                      icon={s.icon}
+                      className="w-[18px] h-[18px] fill-current"
+                    />
                   </a>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Navigation & Contact Columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 flex-1 max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 flex-1 max-w-lg">
             {data.columns?.map((col, idx) => (
               <div key={idx} className="flex flex-col space-y-3.5">
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-[#D0EA87] font-sans underline underline-offset-8 decoration-2 decoration-[#D0EA87]">
                   {col.title}
                 </span>
                 <ul className="space-y-3 text-sm font-medium text-[#D8E4DC]">
-                  {col.links.map((link) => (
-                    <li key={link.name}>
-                      <Link
-                        href={link.href}
-                        className="hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded inline-block"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
+                  {col.links.map((link) => {
+                    const targetId = link.href
+                      .replace(/^#/, "")
+                      .replace(/^\/#/, "");
+                    const destination =
+                      pathname === "/"
+                        ? link.href.startsWith("#")
+                          ? link.href
+                          : `#${targetId}`
+                        : `/#${targetId}`;
+                    return (
+                      <li key={link.name}>
+                        <Link
+                          href={destination}
+                          onClick={(e) => handleLinkClick(e, destination)}
+                          className="hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded inline-block"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
 
-            <div className="col-span-2 sm:col-span-1 flex flex-col space-y-3.5">
+            <div className="flex flex-col space-y-3.5">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-[#D0EA87] font-sans underline underline-offset-8 decoration-2 decoration-[#D0EA87]">
                 {data.contact?.title || "Contact Us"}
               </span>
@@ -139,10 +189,23 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
                     href={`mailto:${data.contact?.email || "info@xyz.com"}`}
                     className="flex items-center gap-2 hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded group"
                   >
-                    <svg className="w-4 h-4 text-[#D0EA87] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <svg
+                      className="w-4 h-4 text-[#D0EA87] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
-                    <span className="break-all group-hover:underline underline-offset-2">{data.contact?.email || "info@xyz.com"}</span>
+                    <span className="break-all group-hover:underline underline-offset-2">
+                      {data.contact?.email || "info@xyz.com"}
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -150,24 +213,55 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
                     href={`tel:${(data.contact?.phone || "+1 000-000-000").replace(/[^\d+]/g, "")}`}
                     className="flex items-center gap-2 hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded group"
                   >
-                    <svg className="w-4 h-4 text-[#D0EA87] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <svg
+                      className="w-4 h-4 text-[#D0EA87] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
-                    <span className="group-hover:underline underline-offset-2">{data.contact?.phone || "+1 000-000-000"}</span>
+                    <span className="group-hover:underline underline-offset-2">
+                      {data.contact?.phone || "+1 000-000-000"}
+                    </span>
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-[#D8E4DC]/90">
-                  <svg className="w-4 h-4 text-[#D0EA87] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    className="w-4 h-4 text-[#D0EA87] shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
-                  <span className="leading-snug">{data.contact?.address || "124 Community Way, Suite 300, Austin, TX 78701"}</span>
+                  <span className="leading-snug">
+                    {data.contact?.address ||
+                      "124 Community Way, Suite 300, Austin, TX 78701"}
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Back to Top Section */}
           <div className="self-start lg:self-start shrink-0">
             <motion.button
               whileHover={{ y: -2 }}
@@ -177,21 +271,29 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
               className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/20 bg-white/5 text-sm font-semibold text-[#FAFBF7] hover:text-[#143323] hover:bg-[#D0EA87] hover:border-[#D0EA87] transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87]"
             >
               <span>{backToTopLabel}</span>
-              <svg className="w-4 h-4 text-[#D0EA87] group-hover:text-[#143323] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              <svg
+                className="w-4 h-4 text-[#D0EA87] group-hover:text-[#143323] transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.2}
+                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                />
               </svg>
             </motion.button>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs sm:text-sm text-[#A4BCAB] leading-relaxed">
           <div>
             <p className="font-medium text-[#D8E4DC]">{data.copyright}</p>
           </div>
         </div>
-
       </motion.div>
     </footer>
   );
