@@ -390,8 +390,8 @@
               {
                 "icon": "email",
                 "label": "Email Us",
-                "value": "info@commonground.org",
-                "href": "mailto:info@commonground.org",
+                "value": "info@xyz.com",
+                "href": "mailto:info@xyz.com",
                 "note": "Send us your inquiry anytime"
               },
               {
@@ -475,7 +475,7 @@
               }
             ],
             "contact": {
-              "email": "info@commonground.org",
+              "email": "info@xyz.com",
               "phone": "+1 000-000-000",
               "address": "Tavita Yohe 314 Shunpike Rd Chatham Twp, NJ 07928 United States"
             },
